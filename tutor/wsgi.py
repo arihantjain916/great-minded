@@ -1,5 +1,5 @@
 """
-WSGI config for userproject project.
+WSGI config for tutoruserproject project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
