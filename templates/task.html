@@ -15,18 +15,16 @@
   <title>ToDo List</title>
   <style>
     .a1 {
-      display: flex;
+      /* display: flex; */
       border-radius: 10px;
-      padding: 8px;
-      width: 180px;
-      height: 56px;
       background-color: lightblue;
+      padding: 8px;
+      width: 120px;
+      height: 56px;
       margin: 103;
-      position: absolute;
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
+      position: relative;
       top: 35%;
-      margin-left: 400px;
+      margin-left: auto;
     }
   </style>
 </head>
@@ -41,9 +39,13 @@
     <div class="form-group">
       <label for="description">Enter Description</label>
       <input class="form-control" id="description" name="description" placeholder="Description"></input>
-      <button type="submit" id="add" class='a1' onclick="givealert()">Submit</button>
+
     </div>
-    <a href="/">Click to see your todo list</a>
+    <button type="submit" id="add" class='a1' onclick="givealert()">Submit</button>
+    <div class="f">
+      <a href="/">Click to see your todo list</a>
+    </div>
+    
 
 
 
