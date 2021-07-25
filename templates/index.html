@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Welcome to The Great Minded Tutors Academy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <style>
+    h1 {
+      background-color: white;
+      text-align: center;
+      font-size: 50px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      background-color: yellow;
+      text-align: center;
+    }
+
+    head {
+      display: flex;
+      background-color: aqua;
+      border-radius: 20px;
+    }
+
+    .a {
+      border-radius: 10px;
+      padding: 8px;
+      width: 180px;
+      height: 56px;
+      background-color: lightblue;
+      margin-left: 667px;
+      margin-top: 12px;
+    }
+
+    .a1 {
+      border-radius: 10px;
+      padding: 8px;
+      width: 180px;
+      height: 56px;
+      background-color: lightblue;
+      margin: 103;
+      /* position: absolute; */
+      /* -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        top: 61%;
+        margin-left: 569px; */
+    }
+
+    .table {
+      margin-top: 17px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1>Welcome {{request.user}}</h1>
+  <div class="container">
+    <p>
+      Welcome to the The Great Minded Tutors Academy <br>
+      So here is your task <br>
+      Complete it on time.
+    </p>
+  </div>
+  <button class="a" onclick="window.location.href ='task'">
+    Click to add task
+  </button>
+  <p> </p>
+  <p> </p>
+  <!-- <div class="table"> -->
+  <h1 style="top: 17px;">Your Items</h1>
+  <!-- </div> -->
+  <div class="tabler text-center my-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">S.No</S></th>
+          <th scope="col">Item Title</th>
+          <th scope="col">Item Description</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="bodytable">
+    </table>
+    <button class="a1" onclick="window.location.href ='/logout'">
+      Logout
+    </button>
+    <p></p>
+    <p></p>
+    <p>
+      If you have any doubt regarding your homework or any thing feel free to
+      call or do mail to your mentor any time.
+    </p>
+    <p>If our mentor do not solve your problem then call our customer care number.</p>
+    <p> Our Mail Id is
+    <a href="">xyz@gmail.com</a>
+  </p>
+  </div>
+  
+  <script>
+    // adding values to the table
+    function update() {
+      itemJsonArrayStr = localStorage.getItem('itemsJson')
+      itemJsonArray = JSON.parse(itemJsonArrayStr)
+      let bodytable = document.getElementById("bodytable")
+      let str = ""
+      itemJsonArray.forEach((element, index) => {
+        str += `
+        <tr>
+            <th scope="row">${index + 1}</th>
+            <td>${element[0]}</td>
+            <td>${element[1]}</td>
+            <td><button class="btn btn-primary"onclick="deleted(${index})">Delete</button></td>
+          </tr>
+          `;
+      });
+      bodytable.innerHTML = str
+
+    }
+    update();
+    function deleted(itemindex) {
+      itemJsonArrayStr = localStorage.getItem('itemsJson')
+      itemJsonArray = JSON.parse(itemJsonArrayStr)
+      // Delete the item from list
+      itemJsonArray.splice(itemindex , 1)
+      localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+      update();
+    }
+  </script>
+</body>
+</html>
