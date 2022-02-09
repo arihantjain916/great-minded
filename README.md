@@ -12,9 +12,9 @@ password: password@1254
 **(Please Note: This username and password is for testing only)**
 
 
-**MIT License
+MIT License
 
-Copyright (c) [2022] [Arihant Jain]
+Copyright (c) 2022 Arihant Jain
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
